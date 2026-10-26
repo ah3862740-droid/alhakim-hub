@@ -12,13 +12,13 @@ header { text-align: center; padding: 30px 0; border-bottom: 2px solid #f00; mar
 h1 { color: #f00; font-size: 36px; text-shadow: 0 0 20px #f00; margin-bottom: 10px; }
 .subtitle { color: #0f0; font-size: 16px; }
 .disclaimer { background: #1a0000; border: 2px solid #f00; border-radius: 10px; padding: 15px; margin: 20px 0; text-align: center; color: #fff; font-size: 14px; }
-.section { background: #0a0a0a; border: 1px solid #0f0; border-radius: 10px; padding: 25px; margin-bottom: 20px; }
-h2 { color: #f00; font-size: 26px; margin-bottom: 15px; border-bottom: 1px dashed #f00; padding-bottom: 10px; }
-h3 { color: #0f0; font-size: 20px; margin: 20px 0 10px; }
-p { color: #ccc; margin-bottom: 15px; }
-pre { background: #000; border: 1px solid #0f0; border-radius: 5px; padding: 15px; overflow-x: auto; color: #0f0; direction: ltr; text-align: left; margin: 15px 0; font-size: 14px; }
-ul { color: #ccc; margin-right: 30px; margin-bottom: 15px; }
-li { margin-bottom: 8px; }
+.cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 30px; }
+.card { background: #0a0a0a; border: 1px solid #0f0; border-radius: 10px; padding: 20px; transition: 0.3s; position: relative; overflow: hidden; }
+.card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, #f00, #0f0); }
+.card:hover { border-color: #f00; box-shadow: 0 0 30px rgba(255,0,0,0.5); transform: translateY(-5px); }
+.card h3 { color: #f00; font-size: 18px; margin-bottom: 10px; }
+.card p { color: #ccc; font-size: 13px; margin-bottom: 10px; }
+pre { background: #000; border: 1px solid #0f0; border-radius: 5px; padding: 10px; overflow-x: auto; color: #0f0; direction: ltr; text-align: left; margin: 10px 0; font-size: 12px; }
 .btn-back { display: inline-block; padding: 10px 25px; background: transparent; border: 2px solid #0f0; color: #0f0; text-decoration: none; border-radius: 5px; margin-top: 20px; transition: 0.3s; }
 .btn-back:hover { background: #0f0; color: #000; box-shadow: 0 0 20px #0f0; }
 footer { text-align: center; padding: 30px 0; border-top: 2px solid #f00; margin-top: 40px; color: #666; font-size: 14px; }
@@ -26,52 +26,16 @@ footer { text-align: center; padding: 30px 0; border-top: 2px solid #f00; margin
 </head>
 <body>
 <div class="container">
-<header>
-  <h1>🐉 أدوات Kali Linux</h1>
-  <div class="subtitle">👑 TEAM AL-HAKIM</div>
-</header>
-
-<div class="disclaimer">
-  ⚠️ هذا المحتوى تعليمي فقط. استخدام الأدوات ضد أنظمة بدون إذن غير قانوني.
+<header><h1>🐉 أدوات Kali Linux</h1><div class="subtitle">👑 TEAM AL-HAKIM</div></header>
+<div class="disclaimer">⚠️ هذا المحتوى تعليمي فقط. استخدام الأدوات ضد أنظمة بدون إذن غير قانوني.</div>
+<div class="cards-grid">
+  <div class="card"><h3>1. Nmap - فحص الشبكات</h3><p>أداة فحص الشبكات والمنافذ.</p><pre><code>nmap -sV 192.168.1.1</code></pre></div>
+  <div class="card"><h3>2. Hydra - تخمين كلمات المرور</h3><p>أداة قوية لتخمين كلمات المرور.</p><pre><code>hydra -l admin -P pass.txt ssh://192.168.1.1</code></pre></div>
+  <div class="card"><h3>3. Sqlmap - فحص SQL Injection</h3><p>أداة لاكتشاف ثغرات SQL Injection.</p><pre><code>sqlmap -u "http://example.com?id=1"</code></pre></div>
+  <div class="card"><h3>4. Burp Suite - تحليل الويب</h3><p>أداة لتحليل أمان تطبيقات الويب.</p></div>
 </div>
-
-<div class="section">
-  <h2>1. Nmap - فحص الشبكات</h2>
-  <p>أداة فحص الشبكات والمنافذ. تستخدم لاكتشاف الأجهزة المتصلة والخدمات المفتوحة.</p>
-  <pre><code>nmap -sV 192.168.1.1
-nmap -sn 192.168.1.0/24
-nmap -A 192.168.1.1</code></pre>
-</div>
-
-<div class="section">
-  <h2>2. Hydra - تخمين كلمات المرور</h2>
-  <p>أداة قوية لتخمين كلمات المرور على خدمات مختلفة مثل SSH و FTP و HTTP.</p>
-  <pre><code>hydra -l admin -P passwords.txt ssh://192.168.1.1</code></pre>
-</div>
-
-<div class="section">
-  <h2>3. Sqlmap - فحص SQL Injection</h2>
-  <p>أداة لاكتشاف واستغلال ثغرات SQL Injection في تطبيقات الويب.</p>
-  <pre><code>sqlmap -u "http://example.com/page?id=1" --dbs</code></pre>
-</div>
-
-<div class="section">
-  <h2>4. Burp Suite - تحليل الويب</h2>
-  <p>أداة لتحليل أمان تطبيقات الويب واعتراض الطلبات.</p>
-</div>
-
-<div class="section">
-  <h2>5. Wireshark - تحليل الشبكة</h2>
-  <p>أداة لتحليل حركة الشبكة والتقاط الحزم.</p>
-  <pre><code>wireshark</code></pre>
-</div>
-
 <a href="index.html" class="btn-back">← العودة للرئيسية</a>
-
-<footer>
-  <p>© 2026 AL-HAKIM HUB - TEAM AL-HAKIM</p>
-  <p>📱 @GJP_E | 🎵 temalhakim</p>
-</footer>
+<footer><p>© 2026 AL-HAKIM HUB - TEAM AL-HAKIM</p><p>📱 @GJP_E | 🎵 temalhakim</p></footer>
 </div>
 </body>
 </html>
