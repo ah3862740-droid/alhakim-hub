@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أدوات Kali Linux | AL-HAKIM HUB</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Courier New', monospace; }
+body { background: #000; color: #0f0; direction: rtl; line-height: 1.8; padding: 20px; }
+.container { max-width: 1000px; margin: 0 auto; }
+header { text-align: center; padding: 30px 0; border-bottom: 2px solid #f00; margin-bottom: 30px; }
+h1 { color: #f00; font-size: 36px; text-shadow: 0 0 20px #f00; margin-bottom: 10px; }
+.subtitle { color: #0f0; font-size: 16px; }
+.disclaimer { background: #1a0000; border: 2px solid #f00; border-radius: 10px; padding: 15px; margin: 20px 0; text-align: center; color: #fff; font-size: 14px; }
+.section { background: #0a0a0a; border: 1px solid #0f0; border-radius: 10px; padding: 25px; margin-bottom: 20px; }
+h2 { color: #f00; font-size: 26px; margin-bottom: 15px; border-bottom: 1px dashed #f00; padding-bottom: 10px; }
+h3 { color: #0f0; font-size: 20px; margin: 20px 0 10px; }
+p { color: #ccc; margin-bottom: 15px; }
+pre { background: #000; border: 1px solid #0f0; border-radius: 5px; padding: 15px; overflow-x: auto; color: #0f0; direction: ltr; text-align: left; margin: 15px 0; font-size: 14px; }
+ul { color: #ccc; margin-right: 30px; margin-bottom: 15px; }
+li { margin-bottom: 8px; }
+.warning { background: #1a1a00; border: 1px solid #ff0; border-radius: 5px; padding: 15px; margin: 15px 0; color: #ff0; }
+.btn-back { display: inline-block; padding: 10px 25px; background: transparent; border: 2px solid #0f0; color: #0f0; text-decoration: none; border-radius: 5px; margin-top: 20px; transition: 0.3s; }
+.btn-back:hover { background: #0f0; color: #000; box-shadow: 0 0 20px #0f0; }
+footer { text-align: center; padding: 30px 0; border-top: 2px solid #f00; margin-top: 40px; color: #666; font-size: 14px; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <h1>🐉 أدوات Kali Linux</h1>
+  <div class="subtitle">👑 TEAM AL-HAKIM</div>
+</header>
+
+<div class="disclaimer">
+  ⚠️ هذا المحتوى تعليمي فقط. استخدام الأدوات ضد أنظمة بدون إذن غير قانوني. المطور غير مسؤول عن سوء الاستخدام.
+</div>
+
+<div class="section">
+  <h2>ما هي Kali Linux؟</h2>
+  <p>Kali Linux هي توزيعة Linux مخصصة لاختبار الاختراق والأمن السيبراني. تحتوي على أكثر من 600 أداة متخصصة يستخدمها المحترفون في اختبار الاختراق الأخلاقي.</p>
+</div>
+
+<div class="section">
+  <h2>1. Nmap - فحص الشبكات</h2>
+  <p>أداة فحص الشبكات والمنافذ. تستخدم لاكتشاف الأجهزة المتصلة والخدمات المفتوحة.</p>
+  <pre><code>nmap -sV 192.168.1.1          # فحص الخدمات
+nmap -sn 192.168.1.0/24       # اكتشاف الأجهزة
+nmap -A 192.168.1.1           # فحص شامل</code></pre>
+</div>
+
+<div class="section">
+  <h2>2. Metasploit - اختبار الاختراق</h2>
+  <p>إطار عمل متكامل لاختبار الاختراق. يحتوي على أكثر من 2500 ثغرة معروفة.</p>
+  <pre><code>msfconsole                    # تشغيل الأداة
+search eternalblue            # البحث عن ثغرة
+use exploit/windows/smb/ms17_010_eternalblue
+set RHOSTS 192.168.1.1        # تحديد الهدف
+run                           # التشغيل</code></pre>
+</div>
+
+<div class="section">
+  <h2>3. Hydra - تخمين كلمات المرور</h2>
+  <p>أداة قوية لتخمين كلمات المرور على خدمات مختلفة مثل SSH و FTP و HTTP.</p>
+  <pre><code>hydra -l admin -P passwords.txt ssh://192.168.1.1
+hydra -l admin -P pass.txt 192.168.1.1 http-post-form</code></pre>
+</div>
+
+<div class="section">
+  <h2>4. Sqlmap - فحص SQL Injection</h2>
+  <p>أداة لاكتشاف واستغلال ثغرات SQL Injection في تطبيقات الويب.</p>
+  <pre><code>sqlmap -u "http://example.com/page?id=1" --dbs
+sqlmap -u "http://example.com/page?id=1" --dump</code></pre>
+</div>
+
+<div class="section">
+  <h2>5. Burp Suite - تحليل الويب</h2>
+  <p>أداة لتحليل أمان تطبيقات الويب واعتراض الطلبات. تستخدم بشكل أساسي في اختبار تطبيقات الويب.</p>
+</div>
+
+<div class="section">
+  <h2>6. Wireshark - تحليل الشبكة</h2>
+  <p>أداة لتحليل حركة الشبكة والتقاط الحزم. تساعد في فهم ما يحدث على الشبكة.</p>
+  <pre><code>wireshark                     # تشغيل الواجهة الرسومية
+tshark -i wlan0               # من سطر الأوامر</code></pre>
+</div>
+
+<div class="warning">
+  ⚠️ <strong>تنبيه:</strong> جميع هذه الأدوات يجب استخدامها فقط على الشبكات والأجهزة التي تملكها أو لديك إذن كتابي باختبارها.
+</div>
+
+<a href="index.html" class="btn-back">← العودة للرئيسية</a>
+
+<footer>
+  <p>© 2026 AL-HAKIM HUB - TEAM AL-HAKIM</p>
+  <p>📱 @GJP_E | 🎵 temalhakim</p>
+</footer>
+</div>
+</body>
+</html>
